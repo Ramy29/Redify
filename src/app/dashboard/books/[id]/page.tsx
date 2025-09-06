@@ -5,9 +5,9 @@ import { getSpecificProduct } from "@/lib/actions/dashboard/getProduct";
 export default async function Page({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const { id } = params;
+  const { id } = await params; 
   const bookDetails = await getSpecificProduct(id);
 
   return (
@@ -16,5 +16,6 @@ export default async function Page({
     </div>
   );
 }
+
 
 
