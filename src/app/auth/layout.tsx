@@ -1,7 +1,7 @@
-import Image from 'next/image'
+
 import React from 'react'
 import AuthSlider from './_components/auth-slider'
-import { Allura, Dancing_Script, Great_Vibes, Poppins, Raleway } from 'next/font/google';
+import {  Raleway } from 'next/font/google';
 
 const greatVibes = Raleway({
   subsets: ["latin"],

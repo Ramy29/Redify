@@ -1,6 +1,5 @@
 import React from 'react'
 import Cart from './_components/table'
-import { getCart } from '@/lib/actions/dashboard/Cart'
 import { Metadata } from 'next';
 
 

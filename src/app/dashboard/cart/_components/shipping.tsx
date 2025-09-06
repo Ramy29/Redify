@@ -16,7 +16,6 @@ import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
 export default function CheckoutForm() {
-  const router = useRouter();
   const { data: cart } = useCart();
   const stripe = useStripe();
   const elements = useElements();
@@ -38,7 +37,6 @@ export default function CheckoutForm() {
 
     const addressResult = await addressElement.getValue();
     const { error, token } = await stripe.createToken(cardElement);
-    const tokenId = token?.id;
 
     if (error) {
       console.error("Stripe error:", error);

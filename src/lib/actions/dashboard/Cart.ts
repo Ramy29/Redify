@@ -25,12 +25,12 @@ export async function getCart() {
 
     const payload = await response.json();
 
-    let total = 0;
+    const total = 0;
    
 
-    // ⬇️ نلف على items ونطبع الريفرنس
+
    const itemsWithBooks = await Promise.all(
-  payload.items.map(async (item: any) => {
+  payload.items.map(async (item: Item) => {
     try {
       const bookRes = await fetch(`${process.env.API}/book/${item.book}`, {
         headers: { Authorization: `Bearer ${token.accessToken}` },

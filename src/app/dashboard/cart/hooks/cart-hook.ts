@@ -1,6 +1,6 @@
 "use client"
 
-import { addBook, checkout, deleteProduct, getCart } from "@/lib/actions/dashboard/Cart"
+import { addBook, deleteProduct, getCart } from "@/lib/actions/dashboard/Cart"
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query"
 
 // 🟢 cart query

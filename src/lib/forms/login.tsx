@@ -10,7 +10,6 @@ import { Button } from '@/components/ui/button';
 import { BookOpen } from 'lucide-react';
 import Link from 'next/link';
 import {signIn} from 'next-auth/react';
-import { useRouter } from 'next/navigation';
 import { loginScheme, LoginValue } from '../schemes/auth-scheme';
 import { motion } from 'framer-motion';
 import { Variants } from 'framer-motion';
@@ -63,16 +62,7 @@ export default function LoginForm() {
         }
       }
     };
-    
-    const buttonVariants: Variants = {
-      hover: {
-        scale: 1.02,
-        transition: { duration: 0.2 }
-      },
-      tap: {
-        scale: 0.98
-      }
-    };
+  
   return (
     <>
      <motion.div 

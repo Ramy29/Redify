@@ -27,7 +27,7 @@ interface AllBooksProps {
   bookDetails: IBook; 
 }
 export default function BookDetails({ bookDetails }:AllBooksProps) {
-  const { mutate: addBook, isPending } = useAddBook();
+  const { mutate: addBook } = useAddBook();
 
     const handleAddToCart = (bookId: string) => {
     addBook(

@@ -20,5 +20,5 @@ export interface IBook {
 }
 
 
-export interface IBooksResponse extends Array<IBook> {}
+export type IBooksResponse = IBook[];
 

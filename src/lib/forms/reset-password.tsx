@@ -2,14 +2,12 @@
 
 
 import React from 'react'
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from 'react-hook-form';
 import { Form, FormControl, FormField, FormItem, FormLabel,  FormMessage } from '@/components/ui/form';
 import { Input } from "@/components/ui/input";
 import { Button } from '@/components/ui/button';
 import { BookOpen } from 'lucide-react';
-import Link from 'next/link';
 import ResetPass from '../actions/auth/reset-pass';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
@@ -66,15 +64,6 @@ const itemVariants: Variants = {
   }
 };
 
-const buttonVariants: Variants = {
-  hover: {
-    scale: 1.02,
-    transition: { duration: 0.2 }
-  },
-  tap: {
-    scale: 0.98
-  }
-};
   return (
     <>
      <motion.div

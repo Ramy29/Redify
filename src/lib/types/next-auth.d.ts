@@ -13,7 +13,7 @@ declare module "next-auth" {
   email: string;
   status: "active" | "inactive" | "banned"; 
   role: "Customer" | "Admin" | "Seller"; 
-  shipping_addresses: any[]
+  shipping_addresses: unknown[]
   }
 
   }
@@ -25,8 +25,8 @@ declare module "next-auth" {
 
 
 declare module "next-auth/jwt" {
-  /** Returned by the `jwt` callback and `getToken`, when using JWT sessions */
   interface JWT extends User {
-    
+    accessToken: string
+    refreshToken: string
   }
 }

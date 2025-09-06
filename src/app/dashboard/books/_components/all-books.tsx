@@ -18,7 +18,7 @@ export default function AllBooks({ books }: AllBooksProps) {
   return (
     <div className="w-screen flex px-4">
       {/* Books Section */}
-      <div className="w-full max-w-[1200px] mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto">
+      <div className="w-full max-w-[1200px] py-4 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mx-auto">
         {books.map((book, i) => (
           <motion.div
             key={book._id}
