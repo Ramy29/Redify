@@ -36,6 +36,10 @@ export default function CheckoutForm() {
 
     const addressResult = await addressElement.getValue();
     const { error, token } = await stripe.createToken(cardElement);
+    const pmResult = await stripe.createPaymentMethod({
+      type: 'card',
+      card: cardElement,
+    });
 
     if (error) {
       console.error("Stripe error:", error);
@@ -44,12 +48,13 @@ export default function CheckoutForm() {
     }
 
     if (addressResult.complete) {
-      if (!token?.id) {
-        toast.error("Payment token not generated. Please try again.");
+      if (!token?.id && !pmResult.paymentMethod?.id) {
+        toast.error("Payment details not generated. Please try again.");
         return;
       }
       const data = {
-        token: token.id,
+        token: token?.id,
+        payment_method: pmResult.paymentMethod?.id,
         delivery_address: {
           country: addressResult.value.address.country,
           city: addressResult.value.address.city,

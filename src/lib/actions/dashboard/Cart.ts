@@ -19,7 +19,8 @@ interface DeleteProductData {
 }
 
 interface CheckoutData {
-  token: string;
+  token?: string;
+  payment_method?: string;
   delivery_address: {
     country: string;
     city: string;
