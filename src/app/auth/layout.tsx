@@ -8,7 +8,11 @@ const greatVibes = Raleway({
   weight: ["400"],
 });
 
-export default function layout({children}) {
+type PropsInterface = {
+  children : React.ReactNode
+}
+
+export default function layout({children}:PropsInterface) {
   return (
     <div className='flex'>
       <div className='hidden lg:inline max-w-1/2 max-h-screen'>

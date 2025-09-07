@@ -67,7 +67,7 @@ export default function Cart() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {cart.items.map((item) => (
+                {cart.items.map((item : ItemBook) => (
                   <TableRow key={item.book._id}>
                     <TableCell className="flex gap-1">
                       <p className="w-6 h-6 p-6">{item.quantity}</p>

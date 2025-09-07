@@ -11,7 +11,7 @@ export default function Footer() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { staggerChildren: 0.2, duration: 0.6, ease: "easeOut" },
+      transition: { staggerChildren: 0.2, duration: 0.6, ease: "easeOut" as const },
     },
   };
 
