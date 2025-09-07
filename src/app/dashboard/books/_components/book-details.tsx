@@ -29,7 +29,7 @@ interface AllBooksProps {
 export default function BookDetails({ bookDetails }:AllBooksProps) {
   const { mutate: addBook } = useAddBook();
 
-    const handleAddToCart = (bookId: string) => {
+    const handleAddToCart = (_bookId: string) => {
     addBook(
       { book: bookDetails._id, quantity: 1 },
       {

@@ -1,6 +1,10 @@
 'use server'
 
-export default async function ForgetPass(data) {
+interface ForgetPassData {
+    email: string;
+}
+
+export default async function ForgetPass(data: ForgetPassData) {
     try {
         const response = await fetch(`${process.env.API}/auth/forgot-password`,
             {
@@ -11,7 +15,7 @@ export default async function ForgetPass(data) {
              const payload = await response.json()
              return payload
 
-    } catch (error) {
-          throw new Error("error");
+    } catch (_error) {
+          throw new Error("Failed to send reset password email");
     }
 }

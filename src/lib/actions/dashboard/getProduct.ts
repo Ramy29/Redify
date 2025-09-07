@@ -12,7 +12,7 @@ export async function getBooks() {
 
 export async function getSpecificProduct(_id: string) {
   try {
-    // 1. هات الكوكي (لازم await في Next.js 15)
+    // 1. Read the cookie (await is required in Next.js 15)
     const cookieStore = await cookies();
     const authCookie = cookieStore.get("next-auth.session-token")?.value;
 
@@ -27,7 +27,7 @@ export async function getSpecificProduct(_id: string) {
 
     const response = await fetch(`${process.env.API}/book/${_id}`, {
       headers: {
-        Authorization: `Bearer ${token.accessToken}`, // أو token?.accessToken لو مخزن
+        Authorization: `Bearer ${token.accessToken}`, // or token?.accessToken if stored elsewhere
       },
       cache: "no-store",
     });

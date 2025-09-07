@@ -34,7 +34,7 @@ export default function Countdown({ targetDate }: { targetDate: string }) {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [targetDate, calculateTimeLeft]);
 
   const formatTime = (num: number) => (num < 10 ? `0${num}` : num);
 

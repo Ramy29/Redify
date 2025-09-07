@@ -18,7 +18,7 @@ export function useAddBook() {
   return useMutation({
     mutationFn: addBook,
     onSuccess: () => {
-      // اعمل refresh للـ cart
+      // Refresh the cart after mutation
       queryClient.invalidateQueries({ queryKey: ["cart"] })
     },
   })

@@ -11,7 +11,6 @@ import {
 import { useCart } from "../hooks/cart-hook";
 import { checkout } from "@/lib/actions/dashboard/Cart";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2 } from "lucide-react";
 
@@ -36,7 +35,7 @@ export default function CheckoutForm() {
     if (!cardElement || !addressElement) return;
 
     const addressResult = await addressElement.getValue();
-    const { error, token } = await stripe.createToken(cardElement);
+    const { error } = await stripe.createToken(cardElement);
 
     if (error) {
       console.error("Stripe error:", error);
@@ -66,7 +65,7 @@ export default function CheckoutForm() {
 
       try {
         setLoading(true);
-        const res = await checkout(data, cart._id);
+        await checkout(data, cart._id);
         toast.success("Your order has been submitted 🎉");
          window.location.reload();
       } catch (err) {

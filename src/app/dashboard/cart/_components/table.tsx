@@ -11,15 +11,16 @@ import {
 } from "@/components/ui/table"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { ShoppingCart, Trash } from "lucide-react"
+import { Trash } from "lucide-react"
 import { toast } from "sonner"
 import { useDeleteProduct, useCart } from "../hooks/cart-hook"
 import CheckoutForm from "./shipping"
 import Loader from "../../_components/Loader"
+import { ItemBook } from "@/lib/types/item"
 
 export default function Cart() {
   const { data: cart, isLoading } = useCart()
-  const { mutate: deleteProduct, isPending } = useDeleteProduct()
+  const { mutate: deleteProduct } = useDeleteProduct()
 
   if (isLoading) return <Loader />
   if (!cart) return <p>No cart found</p>

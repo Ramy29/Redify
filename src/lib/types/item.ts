@@ -1,10 +1,10 @@
-type Item = {
+export type Item = {
   book: string
   quantity: number
   _id: string
 }
 
-type ItemBook = {
+export type ItemBook = {
   book: {
     _id: string;
     author: string;

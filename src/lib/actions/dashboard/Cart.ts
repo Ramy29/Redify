@@ -3,6 +3,40 @@
 import { decode } from "next-auth/jwt";
 import { cookies } from "next/headers";
 
+interface Item {
+  _id: string;
+  book: string;
+  quantity: number;
+}
+
+interface AddBookData {
+  book: string;
+  quantity: number;
+}
+
+interface DeleteProductData {
+  book: string;
+}
+
+interface CheckoutData {
+  token: string;
+  delivery_address: {
+    country: string;
+    city: string;
+    state: string;
+    building: number;
+    street: string;
+    floor: number;
+    appartment: number;
+    mobile: string | undefined;
+    additional_info: string;
+    location: {
+      type: string;
+      coordinates: number[];
+    };
+  };
+}
+
 export async function getCart() {
   try {
     const cookieStore = await cookies();
@@ -45,7 +79,7 @@ export async function getCart() {
         return {
           ...item,
           book: {
-            title: "غير متاح",
+            title: "Unavailable",
             price: 0,
           },
           lineTotal: 0,
@@ -63,7 +97,7 @@ export async function getCart() {
         return {
           ...item,
           book: {
-            title: "غير متاح",
+            title: "Unavailable",
             price: 0,
           },
           lineTotal: 0,
@@ -80,7 +114,7 @@ export async function getCart() {
       return {
         ...item,
         book: {
-          title: "غير متاح",
+          title: "Unavailable",
           price: 0,
         },
         lineTotal: 0,
@@ -110,7 +144,7 @@ return cartWithBooks;
   }
 }
 
-export async function addBook(data) {
+export async function addBook(data: AddBookData) {
   
   try {
       const cookieStore = await cookies();
@@ -140,7 +174,7 @@ export async function addBook(data) {
   }
 }
 
-export async function deleteProduct(data) {
+export async function deleteProduct(data: DeleteProductData) {
     try {
       const cookieStore = await cookies();
     const authCookie = cookieStore.get("next-auth.session-token")?.value;
@@ -169,7 +203,7 @@ export async function deleteProduct(data) {
   }
 }
 
-export async function checkout(data,id) {
+export async function checkout(data: CheckoutData, id: string) {
   
   try {
      const cookieStore = await cookies();

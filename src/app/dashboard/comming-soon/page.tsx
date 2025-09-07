@@ -1,7 +1,7 @@
 import React from 'react'
 import CommingSoon from './_components/comming-soon'
 import { Metadata } from 'next';
-import { Raleway } from 'next/font/google';
+// import { Raleway } from 'next/font/google'; // Unused import
 
 
 export const metadata: Metadata = {
