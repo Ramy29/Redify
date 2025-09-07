@@ -148,7 +148,9 @@ export async function addBook(data: AddBookData) {
   
   try {
       const cookieStore = await cookies();
-    const authCookie = cookieStore.get("next-auth.session-token")?.value;
+    const authCookie =
+      cookieStore.get("next-auth.session-token")?.value ??
+      cookieStore.get("__Secure-next-auth.session-token")?.value;
 
     if (!authCookie) throw new Error("No auth cookie found");
 
@@ -177,7 +179,9 @@ export async function addBook(data: AddBookData) {
 export async function deleteProduct(data: DeleteProductData) {
     try {
       const cookieStore = await cookies();
-    const authCookie = cookieStore.get("next-auth.session-token")?.value;
+    const authCookie =
+      cookieStore.get("next-auth.session-token")?.value ??
+      cookieStore.get("__Secure-next-auth.session-token")?.value;
 
     if (!authCookie) throw new Error("No auth cookie found");
 
@@ -207,7 +211,9 @@ export async function checkout(data: CheckoutData, id: string) {
   
   try {
      const cookieStore = await cookies();
-    const authCookie = cookieStore.get("next-auth.session-token")?.value;
+    const authCookie =
+      cookieStore.get("next-auth.session-token")?.value ??
+      cookieStore.get("__Secure-next-auth.session-token")?.value;
 
     if (!authCookie) throw new Error("No auth cookie found");
 
