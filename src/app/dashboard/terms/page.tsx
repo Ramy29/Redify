@@ -12,7 +12,7 @@ export default function terms () {
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/30"></div>
 
-      <div className="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center min-h-screen">
+      <div className="relative max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center min-h-screen">
         
         {/* Image */}
         <motion.div 

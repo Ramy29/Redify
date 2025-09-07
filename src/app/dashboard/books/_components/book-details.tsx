@@ -49,7 +49,7 @@ export default function BookDetails({ bookDetails }:AllBooksProps) {
   }
 
   return (
-    <div className="container mx-auto h-full flex flex-col md:flex-row justify-center text-center lg:text-start items-center gap-8">
+    <div className="container  mx-auto h-full flex flex-col md:flex-row justify-center text-center lg:text-start items-center gap-8">
       
       {/* Book Image */}
       <motion.div
@@ -95,7 +95,7 @@ export default function BookDetails({ bookDetails }:AllBooksProps) {
         <motion.div variants={item} whileTap={{ scale: 0.9 }}>
           <Button
             onClick={handleAddToCart}
-            variant="ghost" className="w-48 mt-10"
+            variant="ghost" className="w-48 mb-4 mt-10"
           >
             Add To Cart
           </Button>

@@ -3,7 +3,7 @@ import AboutUs from './_components/aboutUs'
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Redify | Books",
+  title: "Redify | About-us",
   description: "Who is Redify!",
 };
 

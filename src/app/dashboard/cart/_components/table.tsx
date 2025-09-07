@@ -23,7 +23,20 @@ export default function Cart() {
   const { mutate: deleteProduct } = useDeleteProduct()
 
   if (isLoading) return <Loader />
-  if (!cart) return <p>No cart found</p>
+ if (!cart) {
+  return (
+    <div className="flex flex-col items-center justify-center py-16 text-center">
+      <h2 className="text-2xl font-bold text-gray-700">Your cart is empty</h2>
+      <p className="text-gray-500 mt-2">Start exploring and add your favorite meals to the cart.</p>
+      <a
+        href="/dashboard/books"
+        className="mt-6 inline-block bg-[#393280] text-white px-6 py-2 rounded-lg shadow hover:bg-[#4c3c99] transition"
+      >
+        Browse Books
+      </a>
+    </div>
+  )
+}
 
   const handleDelete = (bookId: string) => {
     deleteProduct(

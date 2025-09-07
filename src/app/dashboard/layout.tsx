@@ -15,7 +15,6 @@ return (
   <div className="overflow-hidden flex flex-col min-h-screen">
     <TopNavbar />
     <Navbar />
-
     <main className="flex-grow">
       {children}
     </main>
