@@ -35,7 +35,7 @@ export default function CheckoutForm() {
     if (!cardElement || !addressElement) return;
 
     const addressResult = await addressElement.getValue();
-    const { error } = await stripe.createToken(cardElement);
+    const { error, token } = await stripe.createToken(cardElement);
 
     if (error) {
       console.error("Stripe error:", error);
@@ -44,8 +44,12 @@ export default function CheckoutForm() {
     }
 
     if (addressResult.complete) {
+      if (!token?.id) {
+        toast.error("Payment token not generated. Please try again.");
+        return;
+      }
       const data = {
-        token: "tok_visa",
+        token: token.id,
         delivery_address: {
           country: addressResult.value.address.country,
           city: addressResult.value.address.city,
@@ -65,9 +69,13 @@ export default function CheckoutForm() {
 
       try {
         setLoading(true);
-        await checkout(data, cart._id);
+        const res = await checkout(data, cart._id);
+        if (res?.success === false) {
+          toast.error(res?.message ?? "Checkout failed. Please try again.");
+          return;
+        }
         toast.success("Your order has been submitted 🎉");
-         window.location.reload();
+        window.location.reload();
       } catch (err) {
         console.error("Checkout failed:", err);
         toast.error("Checkout failed. Please try again.");

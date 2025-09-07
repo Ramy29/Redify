@@ -15,7 +15,7 @@ import Autoplay from "embla-carousel-autoplay"
 import Link from 'next/link'
 
 const categories = [
-  { src: '/images/university.jpg', title: 'Higher Education' },
+  { src: '/images/hardware.jpg', title: 'Higher Education' },
   { src: '/images/music.jpg', title: 'Music' },
   { src: '/images/software.jpg', title: 'Software' },
   { src: '/images/management.jpg', title: 'Management' },

@@ -234,8 +234,11 @@ export async function checkout(data: CheckoutData, id: string) {
   }) 
 
   const payload = await response.json()
-  console.log('Checkout',payload);
-  return {payload}
+  if (!response.ok || payload?.success === false) {
+    console.error('Checkout failed:', payload)
+    return { success: false, message: payload?.message || 'Checkout failed' }
+  }
+  return { success: true, data: payload }
   } catch (error) {
     console.error("Checkout error:", error);
     throw error;
