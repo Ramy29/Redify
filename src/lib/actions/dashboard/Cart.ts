@@ -40,7 +40,9 @@ interface CheckoutData {
 export async function getCart() {
   try {
     const cookieStore = await cookies();
-    const authCookie = cookieStore.get("next-auth.session-token")?.value;
+    const authCookie =
+      cookieStore.get("next-auth.session-token")?.value ??
+      cookieStore.get("__Secure-next-auth.session-token")?.value;
 
     if (!authCookie) throw new Error("No auth cookie found");
 
